@@ -75,13 +75,14 @@ def main():
     if mode=='B' or mode=='b':
         credit_taking=input('Enter credit hours you are taking this semester:')
         expectde_gpa=input('Enter your target GPA:')
-        hrs_taken =input("Enter total hours taken:")
-        current_hrs=float(hours_taken)/float(GPA.strip("\n"))
-        expectd_hr=(float(credit_taking)*4)/float(expectde_gpa)
-        Simulated=(float(current_hrs) + float(expectd_hr))/(float(credit_taking)+float(hours_taken))
-        print(Simulated*4)
-        return Simulated*4
-
+        hrs_taken=input("Enter total hours taken:")
+        current_hrs= (float(hrs_taken)*float(GPA.strip("\n")))
+        print(current_hrs)
+        expectd_hr=(float(credit_taking)*float(expectde_gpa))
+        print(expectd_hr)
+        Simulated=(float(current_hrs) + float(expectd_hr))/(float(credit_taking)+float(hrs_taken))
+        return Simulated
+    
     # clean helper functions for html format
     dent = "<ul><ul><ul><ul><ul><ul><ul>"
     end_dent = "</ul></ul></ul></ul></ul></ul></ul>"
