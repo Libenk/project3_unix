@@ -31,7 +31,8 @@ def main():
     time.sleep(2)
     os.system('clear')
 
-    f = open("/home/big_dave/Desktop/ggggggggggggg/project3_unix-main/DATABASE.txt", "r")
+    #open the database and parse all the elements to be displayed into a dictionary
+    f = open(os.getcwd()+"/DATABASE.txt","r")
     lines = f.readlines()
     s = True
     passer = False
@@ -51,6 +52,7 @@ def main():
                 data[c[0]] = c[1]
             if line == "}\n" and s == False:
                 break
+    #pull out the elements from the dictionary to be displayed into the html file
         id_num = (data["ID"])
         Full_name = (data['FULL_NAME'])
         E_G_D = (data['GRAD_DATE'])
@@ -64,7 +66,6 @@ def main():
         dgpa = (data["D_GPA"])
 
     else:
-        #if the id number is not in the given database, output proper message.
         null_ = subprocess.Popen(['echo', 'ID number doesnt exist in our database. Please try again later.'], stdout=subprocess.PIPE)
         out_n = null_.communicate()[0]
         out_n = out_n.decode()
@@ -83,32 +84,34 @@ def main():
         print(expectd_hr)
         Simulated=(float(current_hrs) + float(expectd_hr))/(float(credit_taking)+float(hrs_taken))
         return Simulated
-    
-    # clean helper functions for html format
-    dent = "<ul><ul><ul><ul><ul><ul><ul>"
-    end_dent = "</ul></ul></ul></ul></ul></ul></ul>"
+    if mode == 'A' or mode == 'a':
+        # clean helper functions for html format
+        dent = "<ul><ul><ul><ul><ul><ul><ul>"
+        end_dent = "</ul></ul></ul></ul></ul></ul></ul>"
 
-    saveFile = open(os.getcwd() + "/out"+".html", 'w')
-    print(os.getcwd())
-    saveFile.write("<h1>     Students Advisor Report       <h1>")
-    saveFile.write("<h2>Students full name: <h2>"        + dent + Full_name   + end_dent)
-    saveFile.write("<h2>Student Id Number:<h2> "         + dent + id_num      + end_dent)
-    saveFile.write("<h2>Students D.O.B: <h2>"            + dent + db          + end_dent)
-    saveFile.write("<h2>Students major: <h2>"            + dent + major       + end_dent)
-    saveFile.write("<h2>Expected graduation date: <h2>"  + dent + E_G_D       + end_dent)
-    saveFile.write("<h2>Total hours taken:<h2> "         + dent + hours_taken + end_dent)
-    saveFile.write("<h2>Total classes taken:<h2> "       + dent + class_TAKEN + end_dent)
-    saveFile.write("<h2>Students class rank: <h2>"       + dent + class_rank  + end_dent)
-    saveFile.write("<h2>Students GPA: <h2>"              + dent + GPA         + end_dent)
-    saveFile.write("<h2>Students Departmental GPA: <h2>" + dent + dgpa        + end_dent)
-    saveFile.write("<h2>Students Standing: <h2>"         + dent + Standing    + end_dent)
-    saveFile.write("<h2>    time stamp:    <h2>"         + dent + str(stamp)  + end_dent)
+        saveFile = open(os.getcwd() + "/out"+".html", 'w')
+        print(os.getcwd())
+        saveFile.write("<h1>     Students Advisor Report       <h1>")
+        saveFile.write("<h2>Students full name: <h2>"        + dent + Full_name   + end_dent)
+        saveFile.write("<h2>Student Id Number:<h2> "         + dent + id_num      + end_dent)
+        saveFile.write("<h2>Students D.O.B: <h2>"            + dent + db          + end_dent)
+        saveFile.write("<h2>Students major: <h2>"            + dent + major       + end_dent)
+        saveFile.write("<h2>Expected graduation date: <h2>"  + dent + E_G_D       + end_dent)
+        saveFile.write("<h2>Total hours taken:<h2> "         + dent + hours_taken + end_dent)
+        saveFile.write("<h2>Total classes taken:<h2> "       + dent + class_TAKEN + end_dent)
+        saveFile.write("<h2>Students class rank: <h2>"       + dent + class_rank  + end_dent)
+        saveFile.write("<h2>Students GPA: <h2>"              + dent + GPA         + end_dent)
+        saveFile.write("<h2>Students Departmental GPA: <h2>" + dent + dgpa        + end_dent)
+        saveFile.write("<h2>Students Standing: <h2>"         + dent + Standing    + end_dent)
+        saveFile.write("<h2>    time stamp:    <h2>"         + dent + str(stamp)  + end_dent)
 
-    #exit screen
-    p = subprocess.Popen(['echo', 'Form complete, please view saved file\nThank you for using our software'], stdout=subprocess.PIPE)
-    out = p.communicate()[0]
-    out = out.decode()
-    print(out)
-
+        #exit screen
+        p = subprocess.Popen(['echo', 'Form complete, please view saved file\nThank you for using our software'], stdout=subprocess.PIPE)
+        out = p.communicate()[0]
+        out = out.decode()
+        print(out)
+    else:
+        print("Invalid entry Please try again later")
+        return None
 if __name__ == '__main__':
     main()
