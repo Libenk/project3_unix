@@ -13,5 +13,5 @@ To run program:
   
   
   Changes:
-  	-The github Repo is changed to 
+  	-The github Repo is changed to https://github.com/Libenk/project3_unix.git
   
