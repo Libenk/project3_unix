@@ -2,7 +2,7 @@
 To run program:
 	- unzip file contents into know folder location
 	- open terminal in newly unziped folder
-	- run "project_3.py" in terminal
+	- run "Project_3.py" in terminal
 	- input student id number from 1003 to 1010
 	- program will gather data
 	- you will then be prompted if you would like 
