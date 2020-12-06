@@ -66,7 +66,6 @@ def main():
         dgpa = (data["D_GPA"])
 
     else:
-        #ouput if id number is not in the database
         null_ = subprocess.Popen(['echo', 'ID number doesnt exist in our database. Please try again later.'], stdout=subprocess.PIPE)
         out_n = null_.communicate()[0]
         out_n = out_n.decode()
@@ -80,16 +79,14 @@ def main():
         expectde_gpa=input('Enter your target GPA:')
         hrs_taken=input("Enter total hours taken:")
         current_hrs= (float(hrs_taken)*float(GPA.strip("\n")))
-        print(current_hrs)
         expectd_hr=(float(credit_taking)*float(expectde_gpa))
-        print(expectd_hr)
         Simulated=(float(current_hrs) + float(expectd_hr))/(float(credit_taking)+float(hrs_taken))
+        print(Simulated)
         return Simulated
     if mode == 'A' or mode == 'a':
         # clean helper functions for html format
         dent = "<ul><ul><ul><ul><ul><ul><ul>"
         end_dent = "</ul></ul></ul></ul></ul></ul></ul>"
-
         saveFile = open(os.getcwd() + "/out"+".html", 'w')
         print(os.getcwd())
         saveFile.write("<h1>     Students Advisor Report       <h1>")
