@@ -31,7 +31,6 @@ def main():
     time.sleep(2)
     os.system('clear')
 
-    # di = open("/home/liben/Desktop" + "results" + ".html", 'w')
     f = open("/home/big_dave/Desktop/ggggggggggggg/project3_unix-main/DATABASE.txt", "r")
     lines = f.readlines()
     s = True
@@ -70,7 +69,7 @@ def main():
         out_n = out_n.decode()
         print(out_n)
         return None
-        
+
     mode = input("choose mode\nA:student report\nB:GPA simulator\n")
     os.system('clear')
     if mode=='B' or mode=='b':
@@ -83,7 +82,7 @@ def main():
         print(Simulated*4)
         return Simulated*4
 
-    # clean helper functions
+    # clean helper functions for html format
     dent = "<ul><ul><ul><ul><ul><ul><ul>"
     end_dent = "</ul></ul></ul></ul></ul></ul></ul>"
 
