@@ -10,3 +10,8 @@ To run program:
 	  initialize the GPA simulator.
 	  	- if "a" or "A" is entered, file is written and program exits
 	  	- if "b" or "B" is entered,  GPA simulator is initialized
+  
+  
+  Changes:
+  	-The github Repo is changed to 
+  
