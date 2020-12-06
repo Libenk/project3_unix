@@ -64,7 +64,7 @@ def main():
         dgpa = (data["D_GPA"])
 
     else:
-        #if the id number is not in the given database, output proper messsage.
+        #if the id number is not in the given database, output proper message.
         null_ = subprocess.Popen(['echo', 'ID number doesnt exist in our database. Please try again later.'], stdout=subprocess.PIPE)
         out_n = null_.communicate()[0]
         out_n = out_n.decode()
